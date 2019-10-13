@@ -1,7 +1,7 @@
 from django.db import models
 
 class Dataset(models.Model):
-    date = models.DateTimeField()
+    date = models.DateField()
     channel = models.CharField(max_length=255)
     country = models.CharField(max_length=50)
     os = models.CharField(max_length=100)
