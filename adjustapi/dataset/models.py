@@ -1,6 +1,15 @@
 from django.db import models
+from django.db.models.query import QuerySet
+from django_group_by import GroupByMixin
+
+
+class DatasetQuerySet(QuerySet, GroupByMixin):
+    pass
+
 
 class Dataset(models.Model):
+    objects = DatasetQuerySet.as_manager()
+    
     date = models.DateField()
     channel = models.CharField(max_length=255)
     country = models.CharField(max_length=50)
