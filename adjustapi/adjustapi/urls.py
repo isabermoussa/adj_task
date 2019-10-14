@@ -24,7 +24,7 @@ from dataset.views import UserViewSet, DatasetViewSet
 
 router = routers.DefaultRouter()
 router.register(r'api/users', UserViewSet)
-router.register(r'api/dataset', DatasetViewSet)
+router.register(r'api/dataset', DatasetViewSet, base_name='dataset')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
