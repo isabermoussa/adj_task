@@ -84,3 +84,27 @@ group_by | String `comma separated` | field names to group by them **Format:** c
     ...
 ]
 ```
+#### Common API use-cases
+
+1. Show the number of impressions and clicks that occurred before the 1st of June 2017, broken down by channel and country, sorted by clicks in descending order. Hint:
+    ```
+    http://your_domain/api/dataset/?date__lte=2017-06-1&ordering=-clicks&group_by=channel,country
+
+    ```
+
+2. Show the number of installs that occurred in May of 2017 on iOS, broken down by date, sorted by date in ascending order.
+    ```
+    http://your_domain/api/dataset/?date__range=2017-05-1,2017-06-1&os=ios&ordering=date&group_by=date
+    ```
+
+3. Show revenue, earned on June 1, 2017 in US, broken down by operating system and sorted by revenue in descending order.
+    ```
+    http://your_domain/api/dataset/?date=2017-06-1&country=US&ordering=-revenue&group_by=os
+
+    ```
+
+4. Show CPI and spend for Canada (CA) broken down by channel ordered by CPI in descending order. Please think carefully which is an appropriate aggregate function for CPI.
+    ```
+    http://your_domain/api/dataset/?country=CA&ordering=-cpi&group_by=channel
+
+    ```
